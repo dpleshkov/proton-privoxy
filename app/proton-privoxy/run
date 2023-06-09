@@ -65,4 +65,5 @@ fi
 
 # Start Privoxy
 ln -s /etc/privoxy/templates /app/proton-privoxy/
-exec privoxy --no-daemon
+exec privoxy --no-daemon &
+while true; do protonvpn refresh; protonvpn c -r; sleep 21600; echo "DISCONNECTING!"; protonvpn disconnect; done
